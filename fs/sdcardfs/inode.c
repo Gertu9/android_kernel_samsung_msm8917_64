@@ -138,7 +138,11 @@ static int sdcardfs_unlink(struct inode *dir, struct dentry *dentry)
 
 	/* save current_cred and override it */
 	saved_cred = override_fsids(SDCARDFS_SB(dir->i_sb),
+<<<<<<< HEAD
 					SDCARDFS_I(dir)->data);
+=======
+						SDCARDFS_I(dir)->data);
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 	if (!saved_cred)
 		return -ENOMEM;
 
@@ -218,7 +222,11 @@ static int sdcardfs_mkdir(struct inode *dir, struct dentry *dentry, umode_t mode
 
 	/* save current_cred and override it */
 	saved_cred = override_fsids(SDCARDFS_SB(dir->i_sb),
+<<<<<<< HEAD
 					SDCARDFS_I(dir)->data);
+=======
+						SDCARDFS_I(dir)->data);
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 	if (!saved_cred)
 		return -ENOMEM;
 
@@ -350,7 +358,11 @@ static int sdcardfs_rmdir(struct inode *dir, struct dentry *dentry)
 
 	/* save current_cred and override it */
 	saved_cred = override_fsids(SDCARDFS_SB(dir->i_sb),
+<<<<<<< HEAD
 					SDCARDFS_I(dir)->data);
+=======
+						SDCARDFS_I(dir)->data);
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 	if (!saved_cred)
 		return -ENOMEM;
 
@@ -577,9 +589,11 @@ static int sdcardfs_permission(struct vfsmount *mnt, struct inode *inode, int ma
 	if (IS_POSIXACL(inode))
 		pr_warn("%s: This may be undefined behavior...\n", __func__);
 	err = generic_permission(&tmp, mask);
+<<<<<<< HEAD
 
+=======
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 	return err;
-
 }
 
 static int sdcardfs_setattr_wrn(struct dentry *dentry, struct iattr *ia)
@@ -799,7 +813,10 @@ const struct inode_operations sdcardfs_dir_iops = {
 	.setattr	= sdcardfs_setattr_wrn,
 	.setattr2	= sdcardfs_setattr,
 	.getattr	= sdcardfs_getattr,
+<<<<<<< HEAD
 
+=======
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 };
 
 const struct inode_operations sdcardfs_main_iops = {

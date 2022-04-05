@@ -537,7 +537,7 @@ static int p9_virtio_probe(struct virtio_device *vdev)
 	chan->vq = virtio_find_single_vq(vdev, req_done, "requests");
 	if (IS_ERR(chan->vq)) {
 		err = PTR_ERR(chan->vq);
-		goto out_free_vq;
+		goto out_free_chan;
 	}
 	chan->vq->vdev->priv = chan;
 	spin_lock_init(&chan->lock);
@@ -590,6 +590,7 @@ out_free_tag:
 	kfree(tag);
 out_free_vq:
 	vdev->config->del_vqs(vdev);
+out_free_chan:
 	kfree(chan);
 fail:
 	return err;
@@ -616,6 +617,9 @@ p9_virtio_create(struct p9_client *client, const char *devname, char *args)
 	struct virtio_chan *chan;
 	int ret = -ENOENT;
 	int found = 0;
+
+	if (devname == NULL)
+		return -EINVAL;
 
 	mutex_lock(&virtio_9p_lock);
 	list_for_each_entry(chan, &virtio_chan_list, chan_list) {

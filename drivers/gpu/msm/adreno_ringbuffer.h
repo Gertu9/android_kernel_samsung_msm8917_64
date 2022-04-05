@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /* Copyright (c) 2002,2007-2016,2018 The Linux Foundation. All rights reserved.
+=======
+/* Copyright (c) 2002,2007-2016,2019-2020 The Linux Foundation. All rights reserved.
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License version 2 and
@@ -128,7 +132,22 @@ struct adreno_ringbuffer {
 	unsigned long sched_timer;
 	enum adreno_dispatcher_starve_timer_states starve_timer_state;
 	spinlock_t preempt_lock;
+<<<<<<< HEAD
 	struct timer_list timer;
+=======
+	/**
+	 * @profile_desc: global memory to construct IB1s to do user side
+	 * profiling
+	 */
+	struct kgsl_memdesc profile_desc;
+	/**
+	 * @profile_index: Pointer to the next "slot" in profile_desc for a user
+	 * profiling IB1.  This allows for PAGE_SIZE / 16 = 256 simultaneous
+	 * commands per ringbuffer with user profiling enabled
+	 * enough.
+	 */
+	u32 profile_index;
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 };
 
 /* Returns the current ringbuffer */
@@ -161,6 +180,9 @@ int adreno_ringbuffer_issuecmds(struct adreno_ringbuffer *rb,
 
 void adreno_ringbuffer_submit(struct adreno_ringbuffer *rb,
 		struct adreno_submit_time *time);
+
+int adreno_ringbuffer_submit_spin_nosync(struct adreno_ringbuffer *rb,
+		struct adreno_submit_time *time, unsigned int timeout);
 
 int adreno_ringbuffer_submit_spin(struct adreno_ringbuffer *rb,
 		struct adreno_submit_time *time, unsigned int timeout);

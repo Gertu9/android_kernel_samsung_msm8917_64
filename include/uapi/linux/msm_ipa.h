@@ -38,7 +38,11 @@
 /**
  * name for default value of invalid protocol of NAT
  */
+<<<<<<< HEAD
 #define IPAHAL_NAT_INVALID_PROTOCOL             0xFF
+=======
+#define IPAHAL_NAT_INVALID_PROTOCOL   0xFF
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 
 /**
  * commands supported by IPA driver

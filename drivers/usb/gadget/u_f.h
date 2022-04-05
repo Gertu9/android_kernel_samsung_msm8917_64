@@ -56,4 +56,7 @@ static inline void  free_ep_req(struct usb_ep *ep, struct usb_request *req)
 }
 
 #endif /* __U_F_H__ */
+<<<<<<< HEAD
 
+=======
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5

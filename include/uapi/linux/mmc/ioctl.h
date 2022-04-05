@@ -57,15 +57,21 @@ struct mmc_ioc_multi_cmd {
 };
 
 #define MMC_IOC_CMD _IOWR(MMC_BLOCK_MAJOR, 0, struct mmc_ioc_cmd)
+<<<<<<< HEAD
 #define MMC_IOC_BUSWIDTH _IO(MMC_BLOCK_MAJOR, 0xCB)
 #define MMC_IOC_CLOCK _IO(MMC_BLOCK_MAJOR, 0xCC)
+=======
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 /*
  * MMC_IOC_MULTI_CMD: Used to send an array of MMC commands described by
  *	the structure mmc_ioc_multi_cmd. The MMC driver will issue all
  *	commands in array in sequence to card.
  */
 #define MMC_IOC_MULTI_CMD _IOWR(MMC_BLOCK_MAJOR, 1, struct mmc_ioc_multi_cmd)
+<<<<<<< HEAD
 
+=======
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 
 /**
  * There are four request types that are applicable for rpmb accesses- two
@@ -127,8 +133,13 @@ struct mmc_ioc_rpmb {
  * is enforced per ioctl call.  For larger data transfers, use the normal
  * block device operations.
  */
+<<<<<<< HEAD
 
 #define MMC_IOC_MAX_BYTES  (512L * 512 * 2)
 #define MMC_IOC_MAX_CMDS    255
 
+=======
+#define MMC_IOC_MAX_BYTES  (512L * 256)
+#define MMC_IOC_MAX_CMDS    255
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 #endif /* LINUX_MMC_IOCTL_H */

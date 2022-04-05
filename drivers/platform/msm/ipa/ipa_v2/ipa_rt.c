@@ -1419,7 +1419,10 @@ int ipa2_reset_rt(enum ipa_ip_type ip, bool user_only)
 						return -EINVAL;
 					}
 				}
+<<<<<<< HEAD
 				
+=======
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 				tbl->rule_cnt--;
 				if (rule->hdr)
 					__ipa_release_hdr(rule->hdr->id);

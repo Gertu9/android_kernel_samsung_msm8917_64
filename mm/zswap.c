@@ -1119,8 +1119,25 @@ static int zswap_frontswap_store(unsigned type, pgoff_t offset,
 
 	if (zswap_is_full(ZSWAP_POOL_MAX)) {
 		zswap_pool_limit_hit++;
+<<<<<<< HEAD
 		ret = -ENOMEM;
 		goto reject;
+=======
+		if (zpool_shrink(zswap_pool, 1, NULL)) {
+			zswap_reject_reclaim_fail++;
+			ret = -ENOMEM;
+			goto reject;
+		}
+
+		/* A second zswap_is_full() check after
+		 * zswap_shrink() to make sure it's now
+		 * under the max_pool_percent
+		 */
+		if (zswap_is_full()) {
+			ret = -ENOMEM;
+			goto reject;
+		}
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 	}
 
 	/* allocate entry */

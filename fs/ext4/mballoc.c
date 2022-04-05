@@ -2488,8 +2488,13 @@ int ext4_mb_add_groupinfo(struct super_block *sb, ext4_group_t group,
 	 * initialize bb_free to be able to skip
 	 * empty groups without initialization
 	 */
+<<<<<<< HEAD
     if (ext4_has_group_desc_csum(sb) &&
         (desc->bg_flags & cpu_to_le16(EXT4_BG_BLOCK_UNINIT))) {
+=======
+	if (ext4_has_group_desc_csum(sb) &&
+	    (desc->bg_flags & cpu_to_le16(EXT4_BG_BLOCK_UNINIT))) {
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 		meta_group_info[i]->bb_free =
 			ext4_free_clusters_after_init(sb, group, desc);
 	} else {
@@ -3060,8 +3065,13 @@ ext4_mb_mark_diskspace_used(struct ext4_allocation_context *ac,
 #endif
 	ext4_set_bits(bitmap_bh->b_data, ac->ac_b_ex.fe_start,
 		      ac->ac_b_ex.fe_len);
+<<<<<<< HEAD
     if (ext4_has_group_desc_csum(sb) &&
         (gdp->bg_flags & cpu_to_le16(EXT4_BG_BLOCK_UNINIT))) {
+=======
+	if (ext4_has_group_desc_csum(sb) &&
+	    (gdp->bg_flags & cpu_to_le16(EXT4_BG_BLOCK_UNINIT))) {
+>>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 		gdp->bg_flags &= cpu_to_le16(~EXT4_BG_BLOCK_UNINIT);
 		ext4_free_group_clusters_set(sb, gdp,
 					     ext4_free_clusters_after_init(sb,
