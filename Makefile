@@ -1,10 +1,6 @@
 VERSION = 3
 PATCHLEVEL = 18
-<<<<<<< HEAD
 SUBLEVEL = 140
-=======
-SUBLEVEL = 124
->>>>>>> f89f092a37445f02bad1cd3d01e8412588a548f5
 EXTRAVERSION =
 NAME = Diseased Newt
 
